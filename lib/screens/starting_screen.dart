@@ -1,4 +1,5 @@
 import 'package:car_buying/constant/constant_color.dart';
+import 'package:car_buying/screens/getstarted_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,35 +23,72 @@ class _StartingScreenState extends State<StartingScreen> {
                 height: 350.h,
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Colors.red,
+                  color: Colors.transparent,
                   image: DecorationImage(
                     image: AssetImage("assets/images/car1.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
+              Row(
+                children: [
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const GetStarted();
+                          },
+                        ),
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(top: 40.h, right: 20.w),
+                      height: 35.h,
+                      width: 120.w,
+                      decoration: BoxDecoration(
+                        color: kBackgroundColor,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20.r),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Guest access",
+                          style: TextStyle(
+                            color: kWhiteColor,
+                            fontFamily: 'Montserrat-Medium',
+                            fontSize: 14.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               Padding(
-                padding: EdgeInsets.only(top: 280.h),
+                padding: EdgeInsets.only(top: 300.h),
                 child: Center(
                   child: Text(
                     "JAMAL",
                     style: TextStyle(
                       color: kLightWhiteColor,
-                      fontFamily: 'Poppins-Medium',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 100.sp,
+                      fontFamily: 'Montserrat-ExtraBold',
+                      fontSize: 90.sp,
                     ),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 430.h),
+                padding: EdgeInsets.only(top: 450.h),
                 child: Center(
                   child: Text(
                     "The best choice for car-buying",
                     style: TextStyle(
                       color: kLightWhiteColor,
-                      fontFamily: 'Poppins-Medium',
+                      fontFamily: 'Montserrat-Medium',
                       fontSize: 15.sp,
                     ),
                   ),
@@ -60,11 +98,11 @@ class _StartingScreenState extends State<StartingScreen> {
           ),
           Container(
             margin: EdgeInsets.only(
-              top: 60.h,
+              top: 90.h,
               right: 17.w,
               left: 17.w,
             ),
-            height: 60.h,
+            height: 55.h,
             width: double.infinity,
             decoration: BoxDecoration(
               color: kLightGreenColor,
@@ -80,8 +118,8 @@ class _StartingScreenState extends State<StartingScreen> {
                   Text(
                     "Log in",
                     style: TextStyle(
-                        color: kGreenColor,
-                        fontFamily: 'Poppins-SemiBold',
+                        color: kBackgroundColor,
+                        fontFamily: 'Montserrat_Semibold',
                         fontSize: 15.sp),
                   ),
                   Image.asset(
@@ -93,12 +131,20 @@ class _StartingScreenState extends State<StartingScreen> {
               ),
             ),
           ),
-          Text(
-            "Log in",
+          SizedBox(
+            height: 30.h,
+          ),
+          const Text(
+            "Don't have an account?",
             style: TextStyle(
-                color: kGreenColor,
-                fontFamily: 'Poppins-SemiBold',
-                fontSize: 15.sp),
+                color: Colors.transparent,
+                decorationColor: kLightGreenColor,
+                fontFamily: 'Montserrat-Medium',
+                shadows: [
+                  Shadow(color: kLightGreenColor, offset: Offset(0, -10))
+                ],
+                decoration: TextDecoration.underline,
+                decorationThickness: 3),
           ),
         ],
       ),
